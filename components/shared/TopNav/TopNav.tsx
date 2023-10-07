@@ -3,7 +3,6 @@ import { userNavInfo } from "@/utilities/SiteData";
 import Link from "next/link";
 import Button from "../Button/Button";
 
-
 type UserType = {
   name: string;
   img: string;
@@ -13,8 +12,6 @@ type TopNavPropsType = {
   mode: string;
   user?: UserType;
 };
-
-
 
 const TopNav = ({ mode, user }: TopNavPropsType) => {
   // Extracting information
@@ -26,7 +23,7 @@ const TopNav = ({ mode, user }: TopNavPropsType) => {
     "text-primary font-semibold px-3 py-1 flex items-center gap-1";
 
   return (
-    <nav className="max-width flex items-center justify-between p-4">
+    <nav className="max-width flex items-center justify-between px-4 py-6 ">
       {/* Logo */}
       <Link
         href="/"
@@ -39,11 +36,7 @@ const TopNav = ({ mode, user }: TopNavPropsType) => {
       {/* Navigations links */}
       <ol className="flex gap-5">
         {navList.map((item) => (
-          <Link
-            key={item.id}
-            href={item.to}
-            className={navStyle}
-          >
+          <Link key={item.id} href={item.to} className={navStyle}>
             <span className="mb-1 text-2xl">{item.icon}</span>
             <span className="whitespace-nowrap">{item.name}</span>
           </Link>

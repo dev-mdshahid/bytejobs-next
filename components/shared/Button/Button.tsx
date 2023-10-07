@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 type ButtonPropsTypes = {
-  type: string;
+  type: "primary" | "secondary";
   text: string;
   href?: string;
   onClick?: () => void;

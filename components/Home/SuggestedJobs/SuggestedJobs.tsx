@@ -1,5 +1,5 @@
 import React from "react";
-import JobCard from "./JobCard/JobCard";
+import SuggestedJobCard from "./SuggestedJobCard/SuggestedJobCard";
 
 const SuggestedJobs = () => {
   return (
@@ -10,12 +10,12 @@ const SuggestedJobs = () => {
       </h1>
 
       <div className="max-width grid grid-cols-3 gap-6 pt-12">
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
+        <SuggestedJobCard />
+        <SuggestedJobCard />
+        <SuggestedJobCard />
+        <SuggestedJobCard />
+        <SuggestedJobCard />
+        <SuggestedJobCard />
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 // Importing icons
-import { HiBriefcase } from 'react-icons/hi';
+import { HiBriefcase } from "react-icons/hi";
 import {
   TbApps,
   TbBriefcase,
@@ -9,28 +9,28 @@ import {
   TbPaint,
   TbReportMoney,
   TbTerminal2,
-} from 'react-icons/tb';
+} from "react-icons/tb";
 import {
   GiAirForce,
   GiBugleCall,
   GiProcessor,
   GiSlashedShield,
   GiTakeMyMoney,
-} from 'react-icons/gi';
-import { AiOutlineProject } from 'react-icons/ai';
-import { RiCustomerService2Line } from 'react-icons/ri';
-import { MdOutlineManageAccounts } from 'react-icons/md';
-import { VscGraphLeft } from 'react-icons/vsc';
+} from "react-icons/gi";
+import { AiOutlineProject } from "react-icons/ai";
+import { RiCustomerService2Line } from "react-icons/ri";
+import { MdOutlineManageAccounts } from "react-icons/md";
+import { VscGraphLeft } from "react-icons/vsc";
 
 // --------------------------- Data for navigation bar ---------------------------
 export const userNavInfo = {
   logoIcon: <HiBriefcase />,
-  title: 'ByteJobs',
+  title: "ByteJobs",
   navList: [
-    { id: 1, name: 'Home', to: '/', icon: <TbHome /> },
-    { id: 2, name: 'Jobs', to: '/jobs', icon: <TbBriefcase /> },
-    { id: 3, name: 'Companies', to: '/companies', icon: <TbBuildingBank /> },
-    { id: 4, name: 'About Us', to: '/about', icon: <TbInfoSquare /> },
+    { id: 1, name: "Home", to: "/", icon: <TbHome /> },
+    { id: 2, name: "Jobs", to: "/search", icon: <TbBriefcase /> },
+    { id: 3, name: "Companies", to: "/companies", icon: <TbBuildingBank /> },
+    { id: 4, name: "About Us", to: "/about", icon: <TbInfoSquare /> },
   ],
 };
 
@@ -38,180 +38,228 @@ export const userNavInfo = {
 export const locations = [
   {
     id: 1,
-    name: 'Any',
+    name: "Any",
   },
   {
     id: 2,
-    name: 'Remote',
+    name: "Remote",
   },
   {
     id: 3,
-    name: 'Dhaka',
+    name: "Dhaka",
   },
   {
     id: 4,
-    name: 'Chittagong',
+    name: "Chittagong",
   },
 ];
 
 export const datesPosted = [
   {
     id: 1,
-    name: 'Latest',
+    name: "Latest",
   },
   {
     id: 2,
-    name: 'Last 1 day',
+    name: "Last 1 day",
   },
   {
     id: 3,
-    name: 'Last 3 days',
+    name: "Last 3 days",
   },
   {
     id: 4,
-    name: 'Last week',
+    name: "Last week",
   },
   {
     id: 5,
-    name: 'Last month',
+    name: "Last month",
   },
   {
     id: 6,
-    name: 'All time',
+    name: "All time",
   },
 ];
 
 export const requiredExperiences = [
   {
     id: 1,
-    name: 'Any',
+    name: "Any",
   },
   {
     id: 2,
-    name: 'Fresher',
+    name: "Fresher",
   },
   {
     id: 3,
-    name: '1+ years',
+    name: "1+ years",
   },
   {
     id: 4,
-    name: '2+ years',
+    name: "2+ years",
   },
   {
     id: 5,
-    name: '3+ years',
+    name: "3+ years",
   },
   {
     id: 6,
-    name: '4+ years',
+    name: "4+ years",
   },
   {
     id: 7,
-    name: '5+ years',
+    name: "5+ years",
   },
 ];
 
 // --------------------------- Data for Search items ---------------------------
 export const searchTerms = [
-  'Front end developer',
-  'Web Developer',
-  'UI designer',
-  'Django Developer',
-  'Co-founder',
-  'Advocate',
-  'Managing director',
-  'Project Manager',
-  'Founding partner',
-  'General Mangager',
-  'Digital Marketer',
-  'SEO Expert',
+  "Front end developer",
+  "Web Developer",
+  "UI designer",
+  "Django Developer",
+  "Co-founder",
+  "Advocate",
+  "Managing director",
+  "Project Manager",
+  "Founding partner",
+  "General Mangager",
+  "Digital Marketer",
+  "SEO Expert",
 ];
 
 // --------------------------- Data for category ---------------------------
 export const categories = [
   {
     id: 1,
-    name: 'Marketing & Communication',
+    name: "Marketing & Communication",
     jobs: 125,
     icon: <GiBugleCall />,
-    color: 'blue',
+    color: "blue",
   },
   {
     id: 2,
-    name: 'Business & Communication',
+    name: "Business & Communication",
     jobs: 225,
     icon: <TbReportMoney />,
-    color: 'yellow',
+    color: "yellow",
   },
   {
     id: 3,
-    name: 'Design & Development',
+    name: "Design & Development",
     jobs: 134,
     icon: <TbTerminal2 />,
-    color: 'purple',
+    color: "purple",
   },
   {
     id: 4,
-    name: 'Armforce Guide & Security',
+    name: "Armforce Guide & Security",
     jobs: 19,
     icon: <GiAirForce />,
-    color: 'sky',
+    color: "sky",
   },
   {
     id: 5,
-    name: 'Project Management',
+    name: "Project Management",
     jobs: 125,
     icon: <AiOutlineProject />,
-    color: 'indigo',
+    color: "indigo",
   },
   {
     id: 6,
-    name: 'Internet Security & Privacy',
+    name: "Internet Security & Privacy",
     jobs: 126,
     icon: <GiSlashedShield />,
-    color: 'red',
+    color: "red",
   },
   {
     id: 7,
-    name: 'Finance Management',
+    name: "Finance Management",
     jobs: 323,
     icon: <GiTakeMyMoney />,
-    color: 'magenta',
+    color: "magenta",
   },
   {
     id: 8,
-    name: 'Customer Care Support',
+    name: "Customer Care Support",
     jobs: 422,
     icon: <RiCustomerService2Line />,
-    color: 'orange',
+    color: "orange",
   },
   {
     id: 9,
-    name: 'Human Resources Management',
+    name: "Human Resources Management",
     jobs: 265,
     icon: <MdOutlineManageAccounts />,
-    color: 'green',
+    color: "green",
   },
   {
     id: 10,
-    name: 'Artificial Intelligence',
+    name: "Artificial Intelligence",
     jobs: 89,
     icon: <GiProcessor />,
-    color: 'rose',
+    color: "rose",
   },
   {
     id: 11,
-    name: 'Software Development',
+    name: "Software Development",
     jobs: 76,
     icon: <TbApps />,
-    color: 'rose',
+    color: "rose",
   },
   {
     id: 12,
-    name: 'Big Data Analysis',
+    name: "Big Data Analysis",
     jobs: 76,
     icon: <VscGraphLeft />,
-    color: 'rose',
+    color: "rose",
   },
 ];
+
+// --------------------------- Job filter ---------------------------
+export const jobFilterList = {
+  types: [
+    {
+      id: "fulltime",
+      name: "Full time jobs",
+      jobCount: 335,
+    },
+    {
+      id: "parttime",
+      name: "Part time jobs",
+      jobCount: 126,
+    },
+    {
+      id: "remote",
+      name: "Remote",
+      jobCount: 313,
+    },
+    {
+      id: "internship",
+      name: "Internships",
+      jobCount: 543,
+    },
+  ],
+  level: [
+    {
+      id: "senior",
+      name: "Senior level",
+      jobCount: 122,
+    },
+    {
+      id: "mid",
+      name: "Mid level",
+      jobCount: 234,
+    },
+    {
+      id: "junior",
+      name: "Junior level",
+      jobCount: 453,
+    },
+    {
+      id: "fresher",
+      name: "Freshers",
+      jobCount: 89,
+    },
+  ],
+};

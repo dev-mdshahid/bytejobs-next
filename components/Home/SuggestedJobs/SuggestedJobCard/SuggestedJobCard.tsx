@@ -4,9 +4,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Link from "next/link";
 import Button from "@/components/shared/Button/Button";
 
-const JobCard = () => {
+const SuggestedJobCard = () => {
   return (
-    <div className="grid gap-4 rounded-xl border border-gray-100 p-5 px-6 text-gray-500 hover:cursor-context-menu hover:border-blue-300">
+    <div className="grid h-fit w-full gap-4 rounded-xl border border-primary-50 bg-white p-5 px-6 text-gray-500 hover:cursor-context-menu hover:border-blue-300">
       {/* Top bar */}
       <div className="flex justify-between gap-2">
         <div className="flex items-center gap-3">
@@ -44,7 +44,7 @@ const JobCard = () => {
       </div>
 
       {/* Company details */}
-      <p className="text-sm">
+      <p className="text-sm leading-6">
         Create a customizable website or online store with an all-in-one
         solution from Squarespace. Choose a website template and start your free
         trial today.
@@ -82,4 +82,4 @@ const JobCard = () => {
   );
 };
 
-export default JobCard;
+export default SuggestedJobCard;

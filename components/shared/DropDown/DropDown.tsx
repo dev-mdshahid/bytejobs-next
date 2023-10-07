@@ -9,20 +9,30 @@ type DropDownPropsTypes = {
   title: string;
   icon: React.ReactNode;
   options: Array<OptionsType>;
-  setOption: (value: string) => void;
+  setOption?: (value: string) => void;
+  small?: boolean;
 };
 
-const DropDown = ({ title, icon, options, setOption }: DropDownPropsTypes) => {
+const DropDown = ({
+  title,
+  icon,
+  options,
+  setOption,
+  small,
+}: DropDownPropsTypes) => {
   return (
-    <div>
+    <div className={small ? "flex items-center" : ""}>
       <h4 className="flex items-center gap-1 pl-4 text-sm">
         <span className="text-primary text-lg">{icon}</span>
-        <span>{title}</span>
+        <span className={small ? "hidden" : ""}>{title}</span>
       </h4>
       <select
-        onChange={(e) => setOption(e.target.value)}
+        // onChange={setOption ? (e) => setOption(e.target.value) : () => {}}
         name={title}
-        className="px-3 py-1.5 text-lg font-bold outline-none"
+        className={
+          "px-3 py-1.5 font-bold outline-none " +
+          (small ? " text-sm" : " text-lg")
+        }
       >
         {options.map((item) => (
           <option key={item.id} value={item.name}>

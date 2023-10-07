@@ -1,7 +1,7 @@
 import React from "react";
 import { searchTerms } from "../../../utilities/SiteData";
 import SuggestedSearchTerms from "./SuggestedSearchTerms/SuggestedSearchTerms";
-import JobSearchBox from "./JobSearchBox/JobSearchBox";
+import JobSearchBox from "./HomeSearchBox/HomeSearchBox";
 
 const SearchJobs = () => {
   return (
