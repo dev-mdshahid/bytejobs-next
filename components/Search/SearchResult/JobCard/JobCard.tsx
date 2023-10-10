@@ -12,7 +12,7 @@ import Link from "next/link";
 const JobCard = () => {
   return (
     <Link
-      href={"/jobdetail"}
+      href={"/jobdetails"}
       className="grid h-fit gap-5 rounded-lg border border-primary-50 p-6 transition hover:border hover:border-primary-300"
     >
       {/* Row - 1 */}

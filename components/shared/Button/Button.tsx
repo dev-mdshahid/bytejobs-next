@@ -3,13 +3,21 @@ import React from "react";
 
 type ButtonPropsTypes = {
   type: "primary" | "secondary";
-  text: string;
+  text?: string;
   href?: string;
   onClick?: () => void;
   className?: string;
+  children?: React.ReactNode;
 };
 
-const Button = ({ type, text, href, onClick, className }: ButtonPropsTypes) => {
+const Button = ({
+  type,
+  text,
+  href,
+  onClick,
+  className,
+  children,
+}: ButtonPropsTypes) => {
   // Styles
   const primaryStyle =
     "bg-primary border border-primary text-white text-md font-semibold px-4 py-1.5 rounded shadow-lg shadow-blue-200 hover:shadow-blue-300 hover:scale-105 active:scale-100 transition " +
@@ -23,6 +31,7 @@ const Button = ({ type, text, href, onClick, className }: ButtonPropsTypes) => {
       className={type === "primary" ? primaryStyle : secondaryStyle}
       onClick={onClick}
     >
+      {children}
       {text}
     </Link>
   ) : (
@@ -30,6 +39,7 @@ const Button = ({ type, text, href, onClick, className }: ButtonPropsTypes) => {
       className={type === "primary" ? primaryStyle : secondaryStyle}
       onClick={onClick}
     >
+      {children}
       {text}
     </button>
   );
