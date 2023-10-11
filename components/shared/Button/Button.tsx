@@ -8,6 +8,7 @@ type ButtonPropsTypes = {
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;
+  disabled?: boolean;
 };
 
 const Button = ({
@@ -17,6 +18,7 @@ const Button = ({
   onClick,
   className,
   children,
+  disabled,
 }: ButtonPropsTypes) => {
   // Styles
   const primaryStyle =
@@ -38,6 +40,7 @@ const Button = ({
     <button
       className={type === "primary" ? primaryStyle : secondaryStyle}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
       {text}

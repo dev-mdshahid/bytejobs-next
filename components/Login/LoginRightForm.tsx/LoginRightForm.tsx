@@ -1,21 +1,66 @@
+"use client";
 import Button from "@/components/shared/Button/Button";
 import InputText from "@/components/shared/Form/InputText";
-import React from "react";
+import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const LoginRightForm = () => {
+  const router = useRouter();
+  const [disabled, setDisabled] = useState(false);
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect") || "/";
+  console.log(redirectUrl);
+
+  // Handle login
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setDisabled(true);
+    const toastId = toast.loading("Logging in...");
+
+    const formElement = e.target as HTMLFormElement;
+
+    const user = {
+      email: formElement.email.value,
+      password: formElement.password.value,
+    };
+
+    const res = await signIn("credentials", {
+      ...user,
+      redirect: false,
+    });
+
+    toast.dismiss(toastId);
+    setDisabled(false);
+    if (res?.error) {
+      toast.error(res.error);
+    } else {
+      toast.success("Logged in successfully!");
+      router.push(redirectUrl);
+    }
+  };
   return (
-    <form className="flex flex-col gap-5">
+    <form onSubmit={handleLogin} className="flex flex-col gap-5">
       <InputText
+        type="email"
         name="email"
         label="Your Email Address"
         placeholder="Ex. mdshahidulridoy@gmail.com"
       />
       <InputText
+        type="password"
         name="password"
         label="Your Password"
         placeholder="Enter Your Password here"
       />
-      <Button type="primary" text="Submit" className="mt-3" />
+
+      <Button
+        disabled={disabled}
+        type="primary"
+        text={disabled ? "Logging in..." : "Submit"}
+        className={"mt-3 " + (disabled ? "opacity-50" : "")}
+      />
     </form>
   );
 };

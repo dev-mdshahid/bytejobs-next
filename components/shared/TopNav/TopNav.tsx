@@ -1,7 +1,12 @@
+"use client";
 import React from "react";
 import { userNavInfo } from "@/utilities/SiteData";
 import Link from "next/link";
 import Button from "../Button/Button";
+
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import { TbLogout } from "react-icons/tb";
 
 type UserType = {
   name: string;
@@ -14,6 +19,8 @@ type TopNavPropsType = {
 };
 
 const TopNav = ({ mode, user }: TopNavPropsType) => {
+  const session = useSession();
+  console.log(session);
   // Extracting information
   const { title, logoIcon, navList } = userNavInfo;
 
@@ -44,8 +51,17 @@ const TopNav = ({ mode, user }: TopNavPropsType) => {
       </ol>
 
       {/* Buttons/profile */}
-      {user ? (
-        <div></div>
+      {session.status === "authenticated" ? (
+        <div>
+          <Button
+            type="secondary"
+            onClick={signOut}
+            className="flex items-center gap-2"
+          >
+            <span>Logout</span>
+            <TbLogout className="text-lg" />
+          </Button>
+        </div>
       ) : (
         <div className="flex gap-4">
           <Button type="secondary" text="Login" href="login" />
