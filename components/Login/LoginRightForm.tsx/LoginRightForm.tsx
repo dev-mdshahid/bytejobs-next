@@ -3,11 +3,12 @@ import Button from "@/components/shared/Button/Button";
 import InputText from "@/components/shared/Form/InputText";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
+import { BiError } from "react-icons/bi";
 
 const LoginRightForm = () => {
   const router = useRouter();
+  const [errorMessage, setErrorMessage] = useState<string>();
   const [disabled, setDisabled] = useState(false);
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get("redirect") || "/";
@@ -17,7 +18,7 @@ const LoginRightForm = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setDisabled(true);
-    const toastId = toast.loading("Logging in...");
+    setErrorMessage("");
 
     const formElement = e.target as HTMLFormElement;
 
@@ -31,17 +32,25 @@ const LoginRightForm = () => {
       redirect: false,
     });
 
-    toast.dismiss(toastId);
-    setDisabled(false);
     if (res?.error) {
-      toast.error(res.error);
+      setErrorMessage(res.error);
+      setDisabled(false);
     } else {
-      toast.success("Logged in successfully!");
       router.push(redirectUrl);
     }
   };
   return (
     <form onSubmit={handleLogin} className="flex flex-col gap-5">
+      {errorMessage ? (
+        <p className="fixed bottom-10 right-10 flex items-center gap-2 rounded-lg bg-red-100 px-5 py-3 text-red-600">
+          <span>
+            <BiError className="text-xl" />
+          </span>
+          {errorMessage}
+        </p>
+      ) : (
+        ""
+      )}
       <InputText
         type="email"
         name="email"

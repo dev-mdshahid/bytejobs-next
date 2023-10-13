@@ -78,7 +78,7 @@ const JobCard = () => {
             </div>
           </div>
         </div>
-        <Button type="primary" text="Apply" className="px-10" />
+        <Button type="primary" text="See Details" className="px-10" />
       </div>
     </Link>
   );

@@ -3,17 +3,18 @@ import Button from "@/components/shared/Button/Button";
 import InputText from "@/components/shared/Form/InputText";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import { BiError } from "react-icons/bi";
 
 const SignupRightForm = () => {
   const router = useRouter();
   const [disabled, setDisabled] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   // Handler function
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setDisabled(true);
-    toast.loading("Creating your account...");
+    setErrorMessage("");
     const form = e.target as HTMLFormElement;
     const user = {
       name: form.fullname.value,
@@ -32,13 +33,12 @@ const SignupRightForm = () => {
       });
 
       const data = await res.json();
-      toast.dismiss();
-      setDisabled(false);
+
       if (data.okay) {
-        toast.success(data.message);
         router.push("/login");
       } else {
-        toast.error(data.message);
+        setErrorMessage(data.message);
+        setDisabled(false);
       }
     } catch (error: any) {
       console.log(error.message);
@@ -47,6 +47,17 @@ const SignupRightForm = () => {
 
   return (
     <form onSubmit={handleSignup} className="flex flex-col gap-5">
+      {errorMessage ? (
+        <p className="fixed bottom-10 right-10 flex items-center gap-2 rounded-lg bg-red-100 px-5 py-3 text-red-600">
+          <span>
+            <BiError className="text-xl" />
+          </span>
+          {errorMessage}
+        </p>
+      ) : (
+        ""
+      )}
+
       <InputText
         name="fullname"
         label="Your Name"

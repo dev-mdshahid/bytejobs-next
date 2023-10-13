@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/next-auth/SessionProvider";
-import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -27,7 +26,6 @@ export default async function RootLayout({
     <html lang="en">
       <SessionProvider session={session}>
         <body className={poppins.className}>
-          <Toaster />
           <TopNav mode="user" />
           {children}
         </body>
