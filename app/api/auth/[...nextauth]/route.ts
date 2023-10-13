@@ -1,6 +1,8 @@
 import { usersCollection } from "@/lib/mongoClient";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import FacebookProvider from "next-auth/providers/facebook";
 import bcrypt from "bcrypt";
 
 const authOptions = {
@@ -36,13 +38,18 @@ const authOptions = {
           } else {
             throw new Error("No user found!");
           }
-
-          console.log(credentials);
-          return { id: "1", ...credentials };
         } else {
           return null;
         }
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+    }),
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_CLIENT_ID ?? "",
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET ?? "",
     }),
   ],
   pages: {
