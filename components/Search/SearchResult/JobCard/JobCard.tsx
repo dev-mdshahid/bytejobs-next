@@ -12,7 +12,7 @@ import Link from "next/link";
 const JobCard = () => {
   return (
     <Link
-      href={"/jobdetail"}
+      href={"/jobdetails"}
       className="grid h-fit gap-5 rounded-lg border border-primary-50 p-6 transition hover:border hover:border-primary-300"
     >
       {/* Row - 1 */}
@@ -78,7 +78,7 @@ const JobCard = () => {
             </div>
           </div>
         </div>
-        <Button type="primary" text="Apply" className="px-10" />
+        <Button type="primary" text="See Details" className="px-10" />
       </div>
     </Link>
   );
