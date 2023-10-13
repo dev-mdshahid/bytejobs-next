@@ -2,10 +2,16 @@ import JobDetails from "@/components/JobDetails/JobDetails";
 import ProtectedRoute from "@/next-auth/ProtectedRoute";
 import React from "react";
 
-const JobDetailsPage = () => {
+type JobDetailsPagePropsType = {
+  params: {
+    jobId: string;
+  };
+};
+
+const JobDetailsPage = ({ params }: JobDetailsPagePropsType) => {
   return (
     <ProtectedRoute>
-      <JobDetails />;
+      <JobDetails jobId={params.jobId} />;
     </ProtectedRoute>
   );
 };
