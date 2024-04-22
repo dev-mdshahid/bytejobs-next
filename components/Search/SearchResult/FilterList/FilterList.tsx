@@ -5,7 +5,7 @@ import InputRange from "@/components/shared/Form/InputRange";
 
 const FilterList = () => {
   return (
-    <section className="grid gap-5 rounded-lg border border-primary-50 bg-white p-6">
+    <section className="sticky top-6 flex h-fit flex-col gap-5 rounded-lg border border-primary-50 bg-white p-6">
       <div className="mb-3">
         <h4 className="mb-4 font-bold text-primary-900">Salary Range</h4>
         <InputRange name="salary" range={100000} />
