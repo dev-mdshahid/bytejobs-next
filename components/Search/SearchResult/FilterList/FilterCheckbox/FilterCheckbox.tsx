@@ -1,15 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsCheck } from "react-icons/bs";
 
 type FilterCheckboxPropsType = {
   name: string;
   jobCount: number;
   id: string;
+  value: string[];
+  setValue: (value: string[]) => void;
 };
 
-const FilterCheckbox = ({ id, name, jobCount }: FilterCheckboxPropsType) => {
+const FilterCheckbox = ({
+  id,
+  name,
+  jobCount,
+  value,
+  setValue,
+}: FilterCheckboxPropsType) => {
   const [checked, setChecked] = useState(false);
+  // useEffect(() => {
+  //   if (checked) {
+  //     const temp = [...value, name];
+  //     setValue(temp);
+  //   } else {
+  //     const index = value.indexOf(name);
+  //     if (index) {
+  //       const temp = value.splice(index, 1);
+  //       setValue(temp);
+  //     }
+  //   }
+  // }, [checked, name, value, setValue]);
+
   return (
     <li className="my-3 flex items-center justify-between gap-20">
       <label htmlFor={id} className="flex select-none items-center  gap-2">

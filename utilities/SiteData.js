@@ -85,30 +85,37 @@ export const requiredExperiences = [
   {
     id: 1,
     name: "Any",
+    value: 123,
   },
   {
     id: 2,
     name: "Fresher",
+    value: 0,
   },
   {
     id: 3,
     name: "1+ years",
+    value: 1,
   },
   {
     id: 4,
     name: "2+ years",
+    value: 2,
   },
   {
     id: 5,
     name: "3+ years",
+    value: 3,
   },
   {
     id: 6,
     name: "4+ years",
+    value: 4,
   },
   {
     id: 7,
     name: "5+ years",
+    value: 5,
   },
 ];
 
@@ -221,22 +228,17 @@ export const jobFilterList = {
   types: [
     {
       id: "fulltime",
-      name: "Full time jobs",
+      name: "Full time",
       jobCount: 335,
     },
     {
       id: "parttime",
-      name: "Part time jobs",
+      name: "Part time",
       jobCount: 126,
     },
     {
-      id: "remote",
-      name: "Remote",
-      jobCount: 313,
-    },
-    {
       id: "internship",
-      name: "Internships",
+      name: "Internship",
       jobCount: 543,
     },
   ],

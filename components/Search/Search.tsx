@@ -1,8 +1,21 @@
 import React from "react";
 import SearchBox from "./SearchBox/SearchBox";
 import SearchResult from "./SearchResult/SearchResult";
+import { JobDetailsType } from "@/utilities/types";
 
-const Search = () => {
+const getJobList = async (): Promise<JobListType> => {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/getjoblist`);
+  const joblist = await res.json();
+  return joblist as Promise<JobListType>;
+};
+
+type JobListType = {
+  data: JobDetailsType[];
+};
+
+const Search = async () => {
+  const joblist = await getJobList();
+  const { data } = joblist;
   return (
     <main className="">
       <section className="relative m-5 mt-0 rounded-lg bg-gradient-to-r from-primary-500  to-cyan-400 px-10 pb-24 pt-16">
@@ -13,7 +26,7 @@ const Search = () => {
           <SearchBox />
         </div>
       </section>
-      <SearchResult />
+      <SearchResult data={data} />
     </main>
   );
 };

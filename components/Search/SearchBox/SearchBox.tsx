@@ -1,12 +1,20 @@
+"use client";
 import DropDown from "@/components/shared/DropDown/DropDown";
 import {
   datesPosted,
   locations,
   requiredExperiences,
 } from "@/utilities/SiteData";
+import { useSearchParams } from "next/navigation";
 import { TbCalendarTime, TbClock, TbLocation, TbSearch } from "react-icons/tb";
 
 const SearchBox = () => {
+  const searchParams = useSearchParams();
+  const location = searchParams.get("Location");
+  const date = searchParams.get("Date Posted");
+  const experience = searchParams.get("Experience");
+  const keywords = searchParams.get("keywords");
+
   return (
     <form className="max-width mx-auto flex rounded-xl border border-primary-100 bg-white p-4 px-6 shadow-lg shadow-primary-50">
       {/* Dropdown menus */}
@@ -15,6 +23,7 @@ const SearchBox = () => {
           title="Location"
           icon={<TbLocation />}
           options={locations}
+          value={location ?? ""}
           small
         />
 
@@ -22,6 +31,7 @@ const SearchBox = () => {
           title="Date Posted"
           icon={<TbCalendarTime />}
           options={datesPosted}
+          value={date ?? ""}
           small
         />
 
@@ -29,6 +39,7 @@ const SearchBox = () => {
           title="Experience"
           icon={<TbClock />}
           options={requiredExperiences}
+          value={experience ?? ""}
           small
         />
       </div>
@@ -38,6 +49,7 @@ const SearchBox = () => {
         <input
           name="keywords"
           type="text"
+          defaultValue={keywords ?? ""}
           className="h-fit w-full min-w-[200px] border-l border-primary-100 py-2 pl-5 pr-3 text-sm font-bold capitalize outline-none"
           placeholder="Type Job Title, Company or Location"
         />

@@ -7,9 +7,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { BiError } from "react-icons/bi";
 
 const LoginRightForm = () => {
-  const router = useRouter();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [disabled, setDisabled] = useState(false);
+  const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get("redirect") || "/";
   console.log(redirectUrl);

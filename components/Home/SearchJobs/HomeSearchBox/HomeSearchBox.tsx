@@ -22,6 +22,7 @@ const JobSearchBox = () => {
       {/* Search bar */}
       <div className="flex w-full items-center gap-3">
         <input
+          name="keywords"
           type="text"
           className="h-fit w-full px-3 py-2 text-lg font-bold capitalize outline-none"
           placeholder="Any Job Title, Company or Location"

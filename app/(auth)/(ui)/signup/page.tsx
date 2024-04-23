@@ -1,19 +1,19 @@
 import React from "react";
-
-import LoginLeftBanner from "./LoginLeftBanner/LoginLeftBanner";
-import LoginRightForm from "./LoginRightForm.tsx/LoginRightForm";
-import Divider from "../shared/Divider/Divider";
-import OtherLoginProviders from "./LoginRightForm.tsx/OtherLoginProviders/OtherLoginProviders";
 import Image from "next/image";
 
 import logo from "@/media/icons/job.png";
+import SignupLeftBanner from "./_components/SignupLeftBanner/SignupLeftBanner";
+import SignupRightForm from "./_components/SignupRightForm/SignupRightForm";
+import Divider from "@/components/shared/Divider/Divider";
+import OtherLoginProviders from "../login/_components/LoginRightForm/OtherLoginProviders/OtherLoginProviders";
+import AuthProtectedRoute from "@/next-auth/AuthProtectedRoute";
 
-const Login = () => {
+const Signup = () => {
   return (
     <main className="py-5">
       <section className="max-width my-auto grid grid-cols-2 place-items-center gap-10 rounded-xl border border-primary-50 p-2">
         {/* Left side */}
-        <LoginLeftBanner />
+        <SignupLeftBanner />
 
         {/* Right side */}
         <section className="w-full max-w-[500px] p-10">
@@ -21,7 +21,7 @@ const Login = () => {
           <div className="mb-10 flex flex-col items-center">
             <Image src={logo} alt="Bytejobs logo" width={50} height={50} />
             <h1 className="mb-2 mt-3 text-3xl font-bold text-primary-900">
-              Log In
+              Sign Up
             </h1>
             <p className="text-sm text-gray-500">
               Provide your credentials & you&apos;re good to go!
@@ -29,7 +29,7 @@ const Login = () => {
           </div>
 
           {/* Form */}
-          <LoginRightForm />
+          <SignupRightForm />
 
           {/* divider */}
           <Divider text="OR" className="my-10" />
@@ -42,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

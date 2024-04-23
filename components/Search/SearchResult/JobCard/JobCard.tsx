@@ -107,7 +107,7 @@ const JobCard = ({ jobInfo }: JobCardPropsType) => {
 
       {/* Row - 3 */}
       <p className="text-ellipsis text-sm leading-6 tracking-wide text-gray-500">
-        {description.slice(0, 160)}
+        {description.slice(0, 160)}...
       </p>
       <Divider />
 

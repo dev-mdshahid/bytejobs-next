@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/shared/Button/Button";
+import DropDown from "@/components/shared/DropDown/DropDown";
 import InputText from "@/components/shared/Form/InputText";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -75,6 +76,7 @@ const SignupRightForm = () => {
         label="Your Password"
         placeholder="Enter Your Password here"
       />
+
       <Button
         disabled={disabled}
         type="primary"
