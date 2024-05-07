@@ -11,4 +11,5 @@ export type JobDetailsType = {
   salary: number;
   date: Date;
   applied: Array<string>;
+  postedBy: string;
 };

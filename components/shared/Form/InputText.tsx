@@ -19,6 +19,7 @@ const InputText = ({ name, placeholder, label, type }: InputTextPropsType) => {
         name={name}
         id={name}
         placeholder={placeholder}
+        min={0}
         required
       />
     </div>

@@ -1,0 +1,12 @@
+import React from "react";
+import ProfileBanner from "./_components/ProfileBanner/ProfileBanner";
+import PostedJobs from "./_components/PostedJobs/PostedJobs";
+
+export default function ProfilePage() {
+  return (
+    <main className="space-y-10">
+      <ProfileBanner />
+      <PostedJobs />
+    </main>
+  );
+}
