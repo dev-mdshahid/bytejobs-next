@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/next-auth/SessionProvider";
+import { Toaster } from "@/components/ui/sonner";
+import UserProvider from "@/lib/context/userContext";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -22,13 +24,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession();
+  console.log(session);
   return (
     <html lang="en">
       <SessionProvider session={session}>
-        <body className={poppins.className}>
-          <TopNav mode="user" />
-          {children}
-        </body>
+        <UserProvider>
+          <body className={poppins.className}>
+            <TopNav mode="user" />
+            {children}
+            <Toaster richColors theme="light" />
+          </body>
+        </UserProvider>
       </SessionProvider>
     </html>
   );

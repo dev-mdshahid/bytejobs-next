@@ -19,6 +19,7 @@ const SignupRightForm = () => {
     const form = e.target as HTMLFormElement;
     const user = {
       name: form.fullname.value,
+      profession: form.profession.value,
       email: form.email.value,
       password: form.password.value,
     };
@@ -63,6 +64,11 @@ const SignupRightForm = () => {
         name="fullname"
         label="Your Name"
         placeholder="Ex. Md. Shahidul Islam"
+      />
+      <InputText
+        name="profession"
+        label="Your Profession"
+        placeholder="Ex. Software Engineer"
       />
       <InputText
         type="email"

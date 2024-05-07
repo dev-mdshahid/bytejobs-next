@@ -1,4 +1,4 @@
-import { jobsCollection } from "@/lib/mongoClient";
+import { jobsCollection, userJobsCollection } from "@/lib/mongoClient";
 import { ObjectId } from "mongodb";
 import { NextResponse, NextRequest } from "next/server";
 
@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const jobId = searchParams.get("jobId");
 
   if (jobId) {
-    const jobDetails = await jobsCollection.findOne({
+    const jobDetails = await userJobsCollection.findOne({
       _id: new ObjectId(jobId),
     });
     if (jobDetails) {
