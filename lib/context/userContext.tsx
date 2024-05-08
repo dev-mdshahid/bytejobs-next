@@ -14,6 +14,7 @@ const UserContext = createContext({
     name: "",
     email: "",
     profession: "",
+    applied: [],
   },
 });
 
@@ -23,6 +24,7 @@ export default function UserProvider({ children }: { children: ReactNode }) {
     name: "",
     email: "",
     profession: "",
+    applied: [],
   });
   const session = useSession();
   useEffect(() => {

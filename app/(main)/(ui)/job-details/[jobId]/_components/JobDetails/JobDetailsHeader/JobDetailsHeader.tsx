@@ -8,15 +8,47 @@ import Image from "next/image";
 import { JobDetailsType } from "@/utilities/types";
 import { companiesLogo } from "@/utilities/CompaniesLogo";
 import { useSession } from "next-auth/react";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type JobDetailsHeaderPropsType = {
   data: JobDetailsType;
 };
 
 const JobDetailsHeader = ({ data }: JobDetailsHeaderPropsType) => {
+  // route
+  const route = useRouter();
+
+  // getting user email
   const session = useSession();
   const userEmail = session.data?.user?.email;
-  const { company, title, location, type, date, applied, postedBy } = data;
+
+  // extracting all the data
+  const { _id, company, title, location, type, date, applied, postedBy } = data;
+  console.log(data);
+
+  // handling applying to the jobs
+  const handleApplyToJob = async () => {
+    const toastId = toast.loading("Applying to the job!");
+    const buffer = await fetch("/api/apply-for-job", {
+      method: "POST",
+      body: JSON.stringify({
+        jobId: _id,
+        userEmail,
+      }),
+    });
+
+    const res = await buffer.json();
+
+    if (res.ok) {
+      toast.success("Applied to the job successfully!");
+      route.push("/profile");
+    } else {
+      toast.error("Sorry! An error occurred during applying to the job!");
+    }
+    toast.dismiss(toastId);
+  };
+
   const dateObject = new Date(date);
   const monthsOfYear = [
     "January",
@@ -71,7 +103,15 @@ const JobDetailsHeader = ({ data }: JobDetailsHeaderPropsType) => {
             </div>
           </Button>
           {userEmail !== postedBy ? (
-            <Button type="primary" text="Apply Now" />
+            applied.includes(userEmail ?? "") ? (
+              <Button type="primary" text="Applied" disabled />
+            ) : (
+              <Button
+                type="primary"
+                text="Apply Now"
+                onClick={handleApplyToJob}
+              />
+            )
           ) : (
             ""
           )}

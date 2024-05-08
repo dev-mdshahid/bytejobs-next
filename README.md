@@ -1,5 +1,6 @@
-##Features to be upgraded later
+##Features to be upgraded
 
-1. Finalize the logo and then publish the google and facebook app
-2. make the toast better
-3. Disable provider button once the user click on it
+1. apply to the jobs (done)
+2. see applied jobs in the profile(done)
+3. see who has applied to the jobs
+4. make the database distributed

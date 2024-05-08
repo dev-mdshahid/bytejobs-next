@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "ByteJobs is the ultimate platform for finding your dream jobs in the tech industry. Whether you are a developer, designer, marketer, or anything in between, ByteJobs has you covered. You can browse thousands of opportunities from leading companies, apply with one click, and get feedback in minutes. ByteJobs is more than just a job board, it's a community of passionate professionals who want to make a difference in the world. Join ByteJobs today and discover the career you've always wanted.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {
