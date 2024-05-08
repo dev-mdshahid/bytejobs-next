@@ -1,4 +1,5 @@
 export type JobDetailsType = {
+  _id: string;
   title: string;
   description: string;
   responsibilities: Array<string>;
@@ -11,4 +12,5 @@ export type JobDetailsType = {
   salary: number;
   date: Date;
   applied: Array<string>;
+  postedBy: string;
 };

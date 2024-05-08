@@ -22,10 +22,10 @@ const Button = ({
 }: ButtonPropsTypes) => {
   // Styles
   const primaryStyle =
-    "bg-primary border border-primary text-white text-md font-semibold px-4 py-1.5 rounded shadow-lg shadow-blue-200 hover:shadow-blue-300 hover:scale-105 active:scale-100 transition " +
+    "bg-primary h-fit border border-primary text-white text-md font-semibold px-4 py-1.5 rounded shadow-lg shadow-blue-200 hover:shadow-blue-300 hover:scale-105 active:scale-100 transition disabled:opacity-50 " +
     className;
   const secondaryStyle =
-    "bg-white border border-primary text-primary text-md font-semibold px-4 py-1.5 rounded shadow shadow-blue-100 hover:shadow-blue-200 hover:bg-blue-50 transition " +
+    "bg-white h-fit border border-primary text-primary text-md font-semibold px-4 py-1.5 rounded shadow shadow-blue-100 hover:shadow-blue-200 hover:bg-blue-50 transition " +
     className;
   return href ? (
     <Link

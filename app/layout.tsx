@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/next-auth/SessionProvider";
+import { Toaster } from "@/components/ui/sonner";
+import UserProvider from "@/lib/context/userContext";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -16,6 +18,8 @@ export const metadata: Metadata = {
     "ByteJobs is the ultimate platform for finding your dream jobs in the tech industry. Whether you are a developer, designer, marketer, or anything in between, ByteJobs has you covered. You can browse thousands of opportunities from leading companies, apply with one click, and get feedback in minutes. ByteJobs is more than just a job board, it's a community of passionate professionals who want to make a difference in the world. Join ByteJobs today and discover the career you've always wanted.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: {
@@ -25,10 +29,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <SessionProvider session={session}>
-        <body className={poppins.className}>
-          <TopNav mode="user" />
-          {children}
-        </body>
+        <UserProvider>
+          <body className={poppins.className}>
+            <TopNav mode="user" />
+            {children}
+            <Toaster richColors theme="light" />
+          </body>
+        </UserProvider>
       </SessionProvider>
     </html>
   );

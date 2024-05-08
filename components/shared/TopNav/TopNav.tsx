@@ -1,12 +1,20 @@
 "use client";
 import React from "react";
-import { userNavInfo } from "@/utilities/SiteData";
+import { userNavInfo } from "@/app/(main)/(lib)/SiteData";
 import Link from "next/link";
 import Button from "../Button/Button";
 
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import { TbLogout } from "react-icons/tb";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 type UserType = {
   name: string;
@@ -20,7 +28,7 @@ type TopNavPropsType = {
 
 const TopNav = ({ mode, user }: TopNavPropsType) => {
   const session = useSession();
-  console.log(session);
+  const userEmail = session.data?.user?.email ?? "NULL";
   // Extracting information
   const { title, logoIcon, navList } = userNavInfo;
 
@@ -53,14 +61,38 @@ const TopNav = ({ mode, user }: TopNavPropsType) => {
       {/* Buttons/profile */}
       {session.status === "authenticated" ? (
         <div>
-          <Button
-            type="secondary"
-            onClick={signOut}
-            className="flex items-center gap-2"
-          >
-            <span>Logout</span>
-            <TbLogout className="text-lg" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <div className="rounded-full border border-primary-300 p-1 ">
+                <div className="rounded-full border  bg-primary-500 px-3 py-1.5 uppercase text-white">
+                  {userEmail[0]}
+                </div>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>
+                <h4 className="text-primary-900">My Account</h4>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Link href={"/profile"}>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/create-job-post"}>Post a Job</Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Button
+                  type="secondary"
+                  onClick={signOut}
+                  className="flex items-center gap-2"
+                >
+                  <span>Logout</span>
+                  <TbLogout className="text-lg" />
+                </Button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       ) : (
         <div className="flex gap-4">

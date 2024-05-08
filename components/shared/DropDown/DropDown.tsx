@@ -11,6 +11,7 @@ type DropDownPropsTypes = {
   options: Array<OptionsType>;
   setOption?: (value: string) => void;
   small?: boolean;
+  value?: string;
 };
 
 const DropDown = ({
@@ -19,6 +20,7 @@ const DropDown = ({
   options,
   setOption,
   small,
+  value,
 }: DropDownPropsTypes) => {
   return (
     <div className={small ? "flex items-center" : ""}>
@@ -29,13 +31,18 @@ const DropDown = ({
       <select
         // onChange={setOption ? (e) => setOption(e.target.value) : () => {}}
         name={title}
+        defaultValue={value ?? ""}
         className={
           "px-3 py-1.5 font-bold outline-none " +
           (small ? " text-sm" : " text-lg")
         }
       >
         {options.map((item) => (
-          <option key={item.id} value={item.name}>
+          <option
+            selected={item.id === 3 ? true : false}
+            key={item.id}
+            value={item.name}
+          >
             {item.name}
           </option>
         ))}
