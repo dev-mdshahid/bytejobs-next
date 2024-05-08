@@ -1,4 +1,5 @@
 export type JobDetailsType = {
+  _id: string;
   title: string;
   description: string;
   responsibilities: Array<string>;
