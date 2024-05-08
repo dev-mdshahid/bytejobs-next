@@ -12,7 +12,6 @@ const LoginRightForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get("redirect") || "/";
-  console.log(redirectUrl);
 
   // Handle login
   const handleLogin = async (e: React.FormEvent) => {
