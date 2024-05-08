@@ -22,7 +22,7 @@ export default function CreateJobForm() {
       company: form.company.value,
       location: form.location.value,
       experience: parseInt(form.experience.value),
-      type: form.type.value,
+      type: form.type.value.toLowerCase(),
       category: form.category.value,
       salary: parseInt(form.salary.value),
       description: form.description.value,
