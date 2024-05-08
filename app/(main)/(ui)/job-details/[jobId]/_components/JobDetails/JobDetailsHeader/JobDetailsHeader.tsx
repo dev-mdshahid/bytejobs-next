@@ -10,6 +10,14 @@ import { companiesLogo } from "@/utilities/CompaniesLogo";
 import { useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 type JobDetailsHeaderPropsType = {
   data: JobDetailsType;
@@ -113,7 +121,32 @@ const JobDetailsHeader = ({ data }: JobDetailsHeaderPropsType) => {
               />
             )
           ) : (
-            ""
+            <Dialog>
+              <DialogTrigger>
+                {" "}
+                <span className="text-md h-fit rounded border border-primary bg-primary px-4 py-1.5 font-semibold text-white shadow-lg shadow-blue-200 transition hover:scale-105 hover:shadow-blue-300 active:scale-100 disabled:opacity-50">
+                  See candidates
+                </span>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Here is list of the candidates</DialogTitle>
+                  <DialogDescription>
+                    {applied.length ? (
+                      applied.map((email, index) => (
+                        <div className="mt-3" key={email}>
+                          {index + 1}. {email}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="my-10 text-center text-lg text-red-500">
+                        No candidate has applied for this job yet!
+                      </div>
+                    )}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           )}
         </div>
       </div>
